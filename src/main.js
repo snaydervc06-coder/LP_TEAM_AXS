@@ -1,4 +1,3 @@
-// Full Width Hero Carousel
 class FullWidthCarousel {
     constructor() {
         this.currentSlide = 0;
@@ -14,26 +13,21 @@ class FullWidthCarousel {
     }
     
     init() {
-        // Click handlers para los dots
         this.dots.forEach((dot, index) => {
             dot.addEventListener('click', () => this.goToSlide(index));
         });
         
-        // Click handlers para los botones
         if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
         if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
         
-        // Autoplay cada 8 segundos
         this.startAutoplay();
         
-        // Pausar autoplay en hover
         const carousel = document.querySelector('.hero-carousel-fullwidth');
         if (carousel) {
             carousel.addEventListener('mouseenter', () => this.stopAutoplay());
             carousel.addEventListener('mouseleave', () => this.startAutoplay());
         }
         
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') this.prevSlide();
             if (e.key === 'ArrowRight') this.nextSlide();
@@ -41,11 +35,9 @@ class FullWidthCarousel {
     }
     
     goToSlide(index) {
-        // Remove active class
         this.slides.forEach(slide => slide.classList.remove('active'));
         this.dots.forEach(dot => dot.classList.remove('active'));
         
-        // Add active class to new slide
         this.currentSlide = index % this.slides.length;
         this.slides[this.currentSlide].classList.add('active');
         this.dots[this.currentSlide].classList.add('active');
@@ -67,11 +59,9 @@ class FullWidthCarousel {
         clearInterval(this.autoplayInterval);
     }
 }
-
-// Inicializar carousel
 const carousel = new FullWidthCarousel();
 
-// Smooth scroll para links internos
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -85,32 +75,148 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Manejo del formulario de contacto
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        
-        // Obtener valores del formulario
-        const formData = {
-            nombre: this.querySelector('input[type="text"]').value,
-            email: this.querySelector('input[type="email"]').value,
-            telefono: this.querySelector('input[type="tel"]').value,
-            mensaje: this.querySelector('textarea').value
+    class ContactForm {
+    constructor() {
+        this.form = document.getElementById('contactForm');
+        if (!this.form) return;
+    
+        this.inputs = {
+        nombre:   this.form.querySelector('#nombre'),
+        email:    this.form.querySelector('#email'),
+        telefono: this.form.querySelector('#telefono'),
+        empresa:  this.form.querySelector('#empresa'),
+        proyecto: this.form.querySelector('#proyecto'),
         };
-        
-        // Aquí puedes enviar los datos a tu servidor
-        console.log('Datos del formulario:', formData);
-        
-        // Mostrar confirmación al usuario
-        alert('¡Gracias por tu solicitud! Nos pondremos en contacto pronto.');
-        
-        // Limpiar formulario
-        this.reset();
-    });
-}
+    
+        this.submitBtn  = this.form.querySelector('.btn-submit');
+        this.btnText    = this.form.querySelector('.btn-text');
+        this.btnArrow   = this.form.querySelector('.btn-arrow');
+        this.btnLoader  = this.form.querySelector('.btn-loader');
+        this.successMsg = this.form.querySelector('.form-success');
+    
+        this._init();
+    }
+    
+    _init() {
+        this._observeCards();
+    
+        Object.values(this.inputs).forEach(input => {
+        if (!input) return;
+        input.addEventListener('blur',  () => this._validateField(input));
+        input.addEventListener('input', () => {
+            if (input.classList.contains('error')) this._validateField(input);
+        });
+        });
+    
+        this.form.addEventListener('submit', e => this._handleSubmit(e));
+    }
+    
+    _observeCards() {
+        const targets = document.querySelectorAll('.info-item, .info-cta, .contact-form');
+        if (!targets.length || !window.IntersectionObserver) return;
+    
+        const observer = new IntersectionObserver(entries => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+            entry.target.style.animationDelay = `${i * 80}ms`;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+            }
+        });
+        }, { threshold: 0.15 });
+    
+        const style = document.createElement('style');
+        style.textContent = `
+        .info-item, .info-cta, .contact-form {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .info-item.is-visible, .info-cta.is-visible, .contact-form.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        `;
+        document.head.appendChild(style);
+    
+        targets.forEach(el => observer.observe(el));
+    }
+    
+    _validateField(field) {
+        const value     = field.value.trim();
+        const errorSpan = field.closest('.form-group').querySelector('.form-error');
+        let isValid  = true;
+        let errorMsg = '';
+    
+        if (!value) {
+        isValid  = false;
+        errorMsg = 'Este campo es requerido';
+        } else {
+        switch (field.type) {
+            case 'email':
+            isValid  = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            errorMsg = 'Ingresa un email válido';
+            break;
+            case 'tel':
+            isValid  = /^[\d\s+\-()]+$/.test(value) && value.replace(/\D/g, '').length >= 9;
+            errorMsg = 'Ingresa un teléfono válido (mín. 9 dígitos)';
+            break;
+        }
+        }
+    
+        if (isValid) {
+        field.classList.remove('error');
+        if (errorSpan) { errorSpan.textContent = ''; errorSpan.classList.remove('show'); }
+        } else {
+        field.classList.add('error');
+        if (errorSpan) { errorSpan.textContent = errorMsg; errorSpan.classList.add('show'); }
+        }
+    
+        return isValid;
+    }
+    
+    _validateForm() {
+        let valid = true;
+        Object.values(this.inputs).forEach(input => {
+        if (input && !this._validateField(input)) valid = false;
+        });
+        return valid;
+    }
+    
+    _handleSubmit(e) {
+        e.preventDefault();
+        if (!this._validateForm()) return;
+    
+        this._setLoading(true);
+    
+        const formData = Object.fromEntries(
+        Object.entries(this.inputs).map(([k, v]) => [k, v?.value ?? ''])
+        );
 
-// Agregar efecto de scroll al navbar
+        console.log('[ContactForm] data:', formData);
+    
+        setTimeout(() => {
+        this._setLoading(false);
+        this._showSuccess();
+        this.form.reset();
+        }, 1600);
+    }
+    
+    _setLoading(on) {
+        this.submitBtn.disabled = on;
+        this.btnText.classList.toggle('hide', on);
+        this.btnArrow?.classList.toggle('hide', on);
+        this.btnLoader.classList.toggle('show', on);
+    }
+    
+    _showSuccess() {
+        this.successMsg.classList.remove('hidden');
+        setTimeout(() => this.successMsg.classList.add('hidden'), 5000);
+    }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => new ContactForm());
+
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -120,7 +226,6 @@ window.addEventListener('scroll', function () {
     }
 });
 
-// Animación de entrada para elementos
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -135,10 +240,35 @@ const observer = new IntersectionObserver(function (entries) {
     });
 }, observerOptions);
 
-// Observar tarjetas de servicios y pasos del proceso
 document.querySelectorAll('.service-card, .proceso-step').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+
+    (function initProcesoReveal() {
+    const steps = document.querySelectorAll('.proceso-step');
+    if (!steps.length || !window.IntersectionObserver) {
+        steps.forEach(s => s.classList.add('is-visible'));
+        return;
+    }
+    
+    const observer = new IntersectionObserver(
+        (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+            const siblings = [...entry.target.parentElement.children];
+            const index    = siblings.indexOf(entry.target);
+            entry.target.style.transitionDelay = `${index * 90}ms`;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+            }
+        });
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+    
+    steps.forEach(step => observer.observe(step));
+    })();
