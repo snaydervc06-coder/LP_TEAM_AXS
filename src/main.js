@@ -272,3 +272,60 @@ document.querySelectorAll('.service-card, .proceso-step').forEach(el => {
     
     steps.forEach(step => observer.observe(step));
     })();
+
+
+        (function initThemeToggle() {
+    
+    const STORAGE_KEY = 'teamaxs-theme';
+    const html        = document.documentElement;
+    const btn         = document.getElementById('themeToggle');
+    
+    function getInitialTheme() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    
+    function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem(STORAGE_KEY, theme);
+    
+        if (btn) {
+        btn.setAttribute(
+            'aria-label',
+            theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
+        );
+        btn.setAttribute(
+            'title',
+            theme === 'dark' ? 'Modo claro' : 'Modo oscuro'
+        );
+        }
+    }
+    
+    function toggleTheme() {
+        const current = html.getAttribute('data-theme') || 'dark';
+        const next    = current === 'dark' ? 'light' : 'dark';
+    
+        if (btn) {
+        btn.classList.add('toggle-pulse');
+        setTimeout(() => btn.classList.remove('toggle-pulse'), 400);
+        }
+    
+        applyTheme(next);
+    }
+    
+    applyTheme(getInitialTheme());
+    
+    if (btn) {
+        btn.addEventListener('click', toggleTheme);
+    } else {
+        console.warn('[ThemeToggle] No se encontró #themeToggle en el DOM.');
+    }
+    
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+        applyTheme(e.matches ? 'light' : 'dark');
+        }
+    });
+    
+    })();

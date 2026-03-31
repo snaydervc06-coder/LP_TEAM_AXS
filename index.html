@@ -1,430 +1,431 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+    <!DOCTYPE html>
+    <html lang="es" data-theme="dark">
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team AXS - Soluciones Avanzadas en X-Code</title>
     <meta name="description" content="Desarrolladores de sistemas, landing pages, aplicaciones móviles y automatizaciones. Soluciones digitales innovadoras para tu negocio.">
     <link rel="icon" type="image/svg+xml" href="/TEAMAXS.png">
     <link rel="stylesheet" href="/src/style.css">
-</head>
-<body>
-    <!-- Navegación -->
+
+    <script>
+        (function () {
+        var saved  = localStorage.getItem('teamaxs-theme');
+        var system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || system);
+        })();
+    </script>
+    </head>
+
+    <body>
+
+    <!-- ═══════════════════════════════════════
+        NAVBAR
+    ═══════════════════════════════════════ -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="\src\assets\TEAMAXS.png" alt="Team AXS Logo" class="logo-img">
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-                <li><a href="#porque" class="nav-link">Por qué elegirnos</a></li>
-                <li><a href="#proceso" class="nav-link">Proceso</a></li>
-                <li><a href="#contacto" class="nav-link">Contacto</a></li>
 
-            </ul>
+        <a href="#" class="logo">
+            <img src="/src/assets/TEAMAXS.png" alt="Team AXS Logo" class="logo-img">
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+            <li><a href="#porque"   class="nav-link">Por qué elegirnos</a></li>
+            <li><a href="#proceso"  class="nav-link">Proceso</a></li>
+            <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+
+        <div class="navbar-actions">
             <a href="#contacto" class="btn btn-primary">Agendar cita</a>
+            <!-- Toggle dark / light -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">
+            <span class="toggle-track">
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1"  x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22"  y1="4.22"  x2="5.64"  y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1"  y1="12" x2="3"  y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
+                <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
+                </svg>
+                <span class="toggle-thumb"></span>
+            </span>
+            </button>
+
+            
+        </div>
+
         </div>
     </nav>
 
-    <!-- Carrusel de imagenes-->
+
+    <!-- ═══════════════════════════════════════
+        HERO — Carrusel
+    ═══════════════════════════════════════ -->
     <section class="hero-carousel-fullwidth">
+
+        <!-- Slide 1 -->
         <div class="carousel-slide active" style="background-image: url('/src/assets/background1.jfif');">
-            <div class="carousel-overlay"></div>
-            <div class="carousel-slide-content">
-                <div class="hero-tag">
-                    <span class="tag-icon">⚡</span>
-                    Soluciones digitales
-                </div>
-                <h1 class="hero-title">
-                    Arquitectura digital<span class="highlight">para líderes</span> de mercado
-                </h1>
-                <p class="hero-description">
-                    No solo escribimos código; diseñamos la infraestructura tecnológica que permite a tu empresa operar a escala global con eficiencia absoluta.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary">Agendar consulta gratis →</a>
-                    <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
-                </div>
+        <div class="carousel-overlay"></div>
+        <div class="carousel-slide-content">
+            <div class="hero-tag"><span class="tag-icon">⚡</span> Soluciones digitales</div>
+            <h1 class="hero-title">Arquitectura digital <span class="highlight">para líderes</span> de mercado</h1>
+            <p class="hero-description">No solo escribimos código; diseñamos la infraestructura tecnológica que permite a tu empresa operar a escala global con eficiencia absoluta.</p>
+            <div class="hero-buttons">
+            <a href="#contacto" class="btn btn-primary">Agendar consulta gratis →</a>
+            <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
             </div>
         </div>
+        </div>
 
+        <!-- Slide 2 -->
         <div class="carousel-slide" style="background-image: url('/src/assets/background2.jfif');">
-            <div class="carousel-overlay"></div>
-            <div class="carousel-slide-content">
-                <div class="hero-tag">
-                    <span class="tag-icon">📱</span>
-                    Aplicaciones móviles
-                </div>
-                <h1 class="hero-title">
-                    Apps de <span class="highlight">clase mundial</span> que tus usuarios amarán
-                </h1>
-                <p class="hero-description">
-                    Combinamos un diseño UX de alta fidelidad con un rendimiento técnico impecable para poner tu negocio en la palma de la mano de tus clientes.
-                </p> 
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary">Iniciar proyecto →</a>
-                    <a href="#servicios" class="btn btn-secondary">Ver portafolio</a>
-                </div>
+        <div class="carousel-overlay"></div>
+        <div class="carousel-slide-content">
+            <div class="hero-tag"><span class="tag-icon">📱</span> Aplicaciones móviles</div>
+            <h1 class="hero-title">Apps de <span class="highlight">clase mundial</span> que tus usuarios amarán</h1>
+            <p class="hero-description">Combinamos un diseño UX de alta fidelidad con un rendimiento técnico impecable para poner tu negocio en la palma de la mano de tus clientes.</p>
+            <div class="hero-buttons">
+            <a href="#contacto" class="btn btn-primary">Iniciar proyecto →</a>
+            <a href="#servicios" class="btn btn-secondary">Ver portafolio</a>
             </div>
         </div>
+        </div>
 
+        <!-- Slide 3 -->
         <div class="carousel-slide" style="background-image: url('/src/assets/background3.jfif');">
-            <div class="carousel-overlay"></div>
-            <div class="carousel-slide-content">
-                <div class="hero-tag">
-                    <span class="tag-icon">⚙️</span>
-                    Automatización
-                </div>
-                <h1 class="hero-title">
-                    <span class="highlight">Multiplica tu productividad</span>  sin aumentar el personal
-                </h1>
-                <p class="hero-description">
-                    Eliminamos las tareas manuales que frenan tu crecimiento. Creamos sistemas que trabajan por ti, para que tú y tu equipo se enfoquen en lo que realmente importa: hacer crecer el negocio
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary">Consultar solución →</a>
-                    <a href="#servicios" class="btn btn-secondary">Más información</a>
-                </div>
+        <div class="carousel-overlay"></div>
+        <div class="carousel-slide-content">
+            <div class="hero-tag"><span class="tag-icon">⚙️</span> Automatización</div>
+            <h1 class="hero-title"><span class="highlight">Multiplica tu productividad</span> sin aumentar el personal</h1>
+            <p class="hero-description">Eliminamos las tareas manuales que frenan tu crecimiento. Creamos sistemas que trabajan por ti, para que tú y tu equipo se enfoquen en lo que realmente importa: hacer crecer el negocio.</p>
+            <div class="hero-buttons">
+            <a href="#contacto" class="btn btn-primary">Consultar solución →</a>
+            <a href="#servicios" class="btn btn-secondary">Más información</a>
             </div>
         </div>
+        </div>
 
+        <!-- Slide 4 -->
         <div class="carousel-slide" style="background-image: url('/src/assets/background4.jfif');">
-            <div class="carousel-overlay"></div>
-            <div class="carousel-slide-content">
-                <div class="hero-tag">
-                    <span class="tag-icon">🤖</span>
-                    Inteligencia artificial
-                </div>
-                <h1 class="hero-title">
-                    Domina los datos con  <span class="highlight">IA aplicada</span>
-                </h1>
-                <p class="hero-description">
-                    Implementamos modelos de aprendizaje profundo y automatización cognitiva para que tomes decisiones basadas en predicciones, no en suposiciones.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary">Explorar IA →</a>
-                    <a href="#servicios" class="btn btn-secondary">Casos de éxito</a>
-                </div>
+        <div class="carousel-overlay"></div>
+        <div class="carousel-slide-content">
+            <div class="hero-tag"><span class="tag-icon">🤖</span> Inteligencia artificial</div>
+            <h1 class="hero-title">Domina los datos con <span class="highlight">IA aplicada</span></h1>
+            <p class="hero-description">Implementamos modelos de aprendizaje profundo y automatización cognitiva para que tomes decisiones basadas en predicciones, no en suposiciones.</p>
+            <div class="hero-buttons">
+            <a href="#contacto" class="btn btn-primary">Explorar IA →</a>
+            <a href="#servicios" class="btn btn-secondary">Casos de éxito</a>
             </div>
         </div>
+        </div>
 
+        <!-- Slide 5 -->
         <div class="carousel-slide" style="background-image: url('/src/assets/background5.jfif');">
-            <div class="carousel-overlay"></div>
-            <div class="carousel-slide-content">
-                <div class="hero-tag">
-                    <span class="tag-icon">🌐</span>
-                    Desarrollo web
-                </div>
-                <h1 class="hero-title">
-                    Convertimos clics en activos de<span class="highlight"> negocio</span> para tu marca
-                </h1>
-                <p class="hero-description">
-                    Diseño y desarrollo web profesional que convierte visitantes en clientes y potencia tu presencia digital.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary">Crear sitio →</a>
-                    <a href="#servicios" class="btn btn-secondary">Ver ejemplos</a>
-                </div>
+        <div class="carousel-overlay"></div>
+        <div class="carousel-slide-content">
+            <div class="hero-tag"><span class="tag-icon">🌐</span> Desarrollo web</div>
+            <h1 class="hero-title">Convertimos clics en activos de <span class="highlight">negocio</span> para tu marca</h1>
+            <p class="hero-description">Diseño y desarrollo web profesional que convierte visitantes en clientes y potencia tu presencia digital.</p>
+            <div class="hero-buttons">
+            <a href="#contacto" class="btn btn-primary">Crear sitio →</a>
+            <a href="#servicios" class="btn btn-secondary">Ver ejemplos</a>
             </div>
         </div>
+        </div>
 
+        <!-- Controles -->
         <div class="carousel-controls-fullwidth">
-            <button class="carousel-dot-fw active" data-index="0"></button>
-            <button class="carousel-dot-fw" data-index="1"></button>
-            <button class="carousel-dot-fw" data-index="2"></button>
-            <button class="carousel-dot-fw" data-index="3"></button>
-            <button class="carousel-dot-fw" data-index="4"></button>
+        <button class="carousel-dot-fw active" data-index="0"></button>
+        <button class="carousel-dot-fw" data-index="1"></button>
+        <button class="carousel-dot-fw" data-index="2"></button>
+        <button class="carousel-dot-fw" data-index="3"></button>
+        <button class="carousel-dot-fw" data-index="4"></button>
         </div>
 
         <button class="carousel-arrow carousel-arrow-prev" aria-label="Slide anterior"></button>
         <button class="carousel-arrow carousel-arrow-next" aria-label="Siguiente slide"></button>
+
     </section>
 
-    <!-- Servicios -->
+
+    <!-- ═══════════════════════════════════════
+        SERVICIOS
+    ═══════════════════════════════════════ -->
     <section id="servicios" class="servicios">
         <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <div class="servicios-grid">
-                
-                <div class="service-card">
-                    <div class="service-img-container">
-                        <img src="/src/assets/services1.jpg" alt="Icono Desarrollo de Sistemas" class="service-img">
-                    </div>
-                    <h3>Desarrollo de Sistemas</h3>
-                    <p>Software a medida para centralizar y escalar tu operación sin límites técnicos.</p>
-                </div>
 
-                <div class="service-card">
-                    <div class="service-img-container">
-                        <img src="/src/assets/services2.jpg" alt="Icono Desarrollo de Sistemas" class="service-img">
-                    </div>
-                    <h3>Landing Pages</h3>
-                    <p>Diseño de alto impacto optimizado para convertir cada clic en un cliente real.</p>
-                </div>
+        <h2 class="section-title">Nuestros Servicios</h2>
 
-                <div class="service-card">
-                    <div class="service-img-container">
-                        <img src="/src/assets/services3.jpg" alt="Icono Desarrollo de Sistemas" class="service-img">
-                    </div>
-                    <h3>Aplicaciones Móviles</h3>
-                    <p>Experiencias premium en iOS y Android con fluidez total y diseño intuitivo.</p>
-                </div>
+        <div class="servicios-grid">
 
-                <div class="service-card">
-                    <div class="service-img-container">
-                        <img src="/src/assets/services4.jfif" alt="Icono Desarrollo de Sistemas" class="service-img">
-                    </div>
-                    <h3>Automatizaciones</h3>
-                    <p>Flujos inteligentes que eliminan tareas manuales y reducen tus costos operativos.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-img-container">
-                        <img src="/src/assets/services5.jfif" alt="Icono Desarrollo de Sistemas" class="service-img">
-                    </div>
-                    <h3>Diseño Web</h3>
-                    <p>Interfaces de vanguardia que proyectan autoridad y elevan el valor de tu marca.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-img-container">
-                        <img src="/src/assets/services6.jfif" alt="Icono Desarrollo de Sistemas" class="service-img">
-                    </div>
-                    <h3>Consultoría Tech</h3>
-                    <p>Asesoría experta para elegir el stack tecnológico más rentable y escalable.</p>
-                </div>
-
+            <div class="service-card">
+            <div class="service-img-container">
+                <img src="/src/assets/services1.jpg" alt="Desarrollo de Sistemas" class="service-img">
             </div>
+            <h3>Desarrollo de Sistemas</h3>
+            <p>Software a medida para centralizar y escalar tu operación sin límites técnicos.</p>
+            </div>
+
+            <div class="service-card">
+            <div class="service-img-container">
+                <img src="/src/assets/services2.jpg" alt="Landing Pages" class="service-img">
+            </div>
+            <h3>Landing Pages</h3>
+            <p>Diseño de alto impacto optimizado para convertir cada clic en un cliente real.</p>
+            </div>
+
+            <div class="service-card">
+            <div class="service-img-container">
+                <img src="/src/assets/services3.jpg" alt="Aplicaciones Móviles" class="service-img">
+            </div>
+            <h3>Aplicaciones Móviles</h3>
+            <p>Experiencias premium en iOS y Android con fluidez total y diseño intuitivo.</p>
+            </div>
+
+            <div class="service-card">
+            <div class="service-img-container">
+                <img src="/src/assets/services4.jfif" alt="Automatizaciones" class="service-img">
+            </div>
+            <h3>Automatizaciones</h3>
+            <p>Flujos inteligentes que eliminan tareas manuales y reducen tus costos operativos.</p>
+            </div>
+
+            <div class="service-card">
+            <div class="service-img-container">
+                <img src="/src/assets/services5.jfif" alt="Diseño Web" class="service-img">
+            </div>
+            <h3>Diseño Web</h3>
+            <p>Interfaces de vanguardia que proyectan autoridad y elevan el valor de tu marca.</p>
+            </div>
+
+            <div class="service-card">
+            <div class="service-img-container">
+                <img src="/src/assets/services6.jfif" alt="Consultoría Tech" class="service-img">
+            </div>
+            <h3>Consultoría Tech</h3>
+            <p>Asesoría experta para elegir el stack tecnológico más rentable y escalable.</p>
+            </div>
+
+        </div>
         </div>
     </section>
 
-    <!-- Nosotros -->
+
+    <!-- ═══════════════════════════════════════
+        NOSOTROS
+    ═══════════════════════════════════════ -->
     <section id="nosotros" class="nosotros">
         <div class="container">
-            <h2 class="section-title">¿Quiénes Somos?</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <div class="hero-stats about-stats">
-                        <div class="stat">
-                            <span class="stat-number">+30</span>
-                            <span class="stat-label">Proyectos</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">+3</span>
-                            <span class="stat-label">Años Exp.</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-label">Soporte</span>
-                        </div>
-                    </div>
-                    
-                    <p>En <strong>Team AXS</strong>, no solo programamos; somos arquitectos de soluciones que eliminan la brecha entre una idea y un sistema rentable.</p>
-                    <p>Nuestra metodología fusiona el diseño centrado en el usuario con infraestructuras tecnológicas de alto rendimiento, asegurando que tu inversión crezca al ritmo de tu ambición.</p>
+
+        <h2 class="section-title">¿Quiénes Somos?</h2>
+
+        <div class="about-content">
+
+            <div class="about-text">
+            <div class="hero-stats about-stats">
+                <div class="stat">
+                <span class="stat-number">+30</span>
+                <span class="stat-label">Proyectos</span>
                 </div>
-                
-                <div class="about-values">
-                    <div class="value-item">
-                        <h4>Innovación</h4>
-                        <p>Implementamos las últimas tendencias y tecnologías para mantenerte a la vanguardia.</p>
-                    </div>
-                    <div class="value-item">
-                        <h4>Calidad</h4>
-                        <p>Garantizamos productos robustos, funcionales y con un rendimiento superior.</p>
-                    </div>
-                    <div class="value-item">
-                        <h4>Compromiso</h4>
-                        <p>Tu éxito es nuestro motor. Nos involucramos al 100% en cada fase del proyecto.</p>
-                    </div>
+                <div class="stat">
+                <span class="stat-number">+3</span>
+                <span class="stat-label">Años Exp.</span>
                 </div>
+                <div class="stat">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Soporte</span>
+                </div>
+            </div>
+            <p>En <strong>Team AXS</strong>, no solo programamos; somos arquitectos de soluciones que eliminan la brecha entre una idea y un sistema rentable.</p>
+            <p>Nuestra metodología fusiona el diseño centrado en el usuario con infraestructuras tecnológicas de alto rendimiento, asegurando que tu inversión crezca al ritmo de tu ambición.</p>
             </div>
 
-            <div class="tech-stack">
-                <p class="tech-stack-title">Tecnologías en las que confiamos</p>
-                <div class="tech-logos">
-                    <span>ANGULAR</span>
-                    <span>NODE.JS</span>
-                    <span>TAILWIND CSS</span>
-                    <span>PYTHON</span>
-                    <span>AWS</span>
-                </div>
+            <div class="about-values">
+            <div class="value-item">
+                <h4>Innovación</h4>
+                <p>Implementamos las últimas tendencias y tecnologías para mantenerte a la vanguardia.</p>
             </div>
+            <div class="value-item">
+                <h4>Calidad</h4>
+                <p>Garantizamos productos robustos, funcionales y con un rendimiento superior.</p>
+            </div>
+            <div class="value-item">
+                <h4>Compromiso</h4>
+                <p>Tu éxito es nuestro motor. Nos involucramos al 100% en cada fase del proyecto.</p>
+            </div>
+            </div>
+
+        </div>
+
+        <div class="tech-stack">
+            <p class="tech-stack-title">Tecnologías en las que confiamos</p>
+            <div class="tech-logos">
+            <span>ANGULAR</span>
+            <span>NODE.JS</span>
+            <span>TAILWIND CSS</span>
+            <span>PYTHON</span>
+            <span>AWS</span>
+            </div>
+        </div>
+
         </div>
     </section>
 
-    
-    <!-- Porque elegirnos -->
 
+    <!-- ═══════════════════════════════════════
+        POR QUÉ ELEGIRNOS
+    ═══════════════════════════════════════ -->
     <section id="porque" class="porque">
-    <div class="orb-q2"></div>
-    <div class="slash-top"></div>
-    <div class="container">
+        <div class="orb-q2"></div>
+        <div class="slash-top"></div>
+
+        <div class="container">
+
         <div class="porque-header">
-        <div class="porque-eyebrow">Por qué elegirnos</div>
-        <h2 class="section-title">
+            <div class="porque-eyebrow">Por qué elegirnos</div>
+            <h2 class="section-title">
             Lo que nos diferencia<br>
             del <span>mercado</span>
-        </h2>
-        <p class="porque-subtitle">
+            </h2>
+            <p class="porque-subtitle">
             En TEAM AXS combinamos estrategia, tecnología y creatividad para construir soluciones que generan impacto real en tu negocio.
-        </p>
+            </p>
         </div>
+
         <div class="porque-body">
-        <div class="porque-images">
+
+            <div class="porque-images">
             <div class="img-card img-tall">
                 <img src="/src/assets/porque1.jpg" alt="Proyecto 1 - Teamaxs">
-                <div class="img-stat">
-                    <strong>+50</strong>
-                    <span>Proyectos entregados</span>
-                </div>
             </div>
-
             <div class="img-card">
                 <img src="/src/assets/porque2.jpg" alt="Proyecto 2 - Teamaxs">
             </div>
-
             <div class="img-card">
                 <img src="/src/assets/porque3.jpg" alt="Proyecto 3 - Teamaxs">
-                <div class="img-stat">
-                    <strong>100%</strong>
-                    <span>Clientes satisfechos</span>
-                </div>
             </div>
-        </div>
-        <div class="porque-cards">
+            </div>
+
+            <div class="porque-cards">
             <div class="porque-card" data-num="01">
-            <div class="card-icon">📊</div>
-            <h3 class="card-title">Resultados Medibles</h3>
-            <p class="card-desc">
-                Cada web y app que construimos tiene KPIs claros desde el día uno. Ves el impacto en conversiones, velocidad y retención no en promesas.
-            </p>
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Resultados Medibles</h3>
+                <p class="card-desc">Cada web y app que construimos tiene KPIs claros desde el día uno. Ves el impacto en conversiones, velocidad y retención — no en promesas.</p>
             </div>
             <div class="porque-card" data-num="02">
-            <div class="card-icon">🤝</div>
-            <h3 class="card-title">Atención Personalizada</h3>
-            <p class="card-desc">
-                No eres un número en la cola. Tienes un equipo dedicado que entiende tu negocio, tu stack y tus plazos desde la primera llamada.
-            </p>
+                <div class="card-icon">🤝</div>
+                <h3 class="card-title">Atención Personalizada</h3>
+                <p class="card-desc">No eres un número en la cola. Tienes un equipo dedicado que entiende tu negocio, tu stack y tus plazos desde la primera llamada.</p>
             </div>
-    
             <div class="porque-card" data-num="03">
-            <div class="card-icon">⚡</div>
-            <h3 class="card-title">Entrega Rápida</h3>
-            <p class="card-desc">
-                Sprints cortos, código limpio y deploys continuos. Tu producto llega al mercado en semanas, no en meses — sin sacrificar calidad.
-            </p>
+                <div class="card-icon">⚡</div>
+                <h3 class="card-title">Entrega Rápida</h3>
+                <p class="card-desc">Sprints cortos, código limpio y deploys continuos. Tu producto llega al mercado en semanas, sin sacrificar calidad.</p>
             </div>
-    
             <div class="porque-card" data-num="04">
-            <div class="card-icon">🛠️</div>
-            <h3 class="card-title">Código que Escala</h3>
-            <p class="card-desc">
-                Construimos sobre bases sólidas: arquitectura limpia, buenas prácticas y documentación real. Tu producto crece contigo, sin deuda técnica.
-            </p>
+                <div class="card-icon">🛠️</div>
+                <h3 class="card-title">Código que Escala</h3>
+                <p class="card-desc">Construimos sobre bases sólidas: arquitectura limpia, buenas prácticas y documentación real. Tu producto crece contigo.</p>
             </div>
-    
-        </div>    
+            </div>
+
         </div>
-    </div>    
+        </div>
     </section>
 
-    <!-- Proceso -->
+
+    <!-- ═══════════════════════════════════════
+        PROCESO
+    ═══════════════════════════════════════ -->
     <section id="proceso" class="proceso">
-    
-    <div class="orb-p2"></div>
-    <div class="slash-top"></div>
-    
-    <div class="container">
-    
-            <div class="proceso-header">
+        <div class="orb-p2"></div>
+        <div class="slash-top"></div>
+
+        <div class="container">
+
+        <div class="proceso-header">
             <div class="proceso-eyebrow">Cómo trabajamos</div>
-            <h2 class="section-title">
-                Nuestro <span>Proceso</span>
-            </h2>
-            <p class="proceso-subtitle">
-                Un flujo de trabajo claro y transparente, diseñado para llevar tu idea desde la visión hasta el resultado.
-            </p>
-            </div>
-        
-            <div class="proceso-timeline">
+            <h2 class="section-title">Nuestro <span>Proceso</span></h2>
+            <p class="proceso-subtitle">Un flujo de trabajo claro y transparente, diseñado para llevar tu idea desde la visión hasta el resultado.</p>
+        </div>
+
+        <div class="proceso-timeline">
+
             <div class="proceso-step">
-                <div class="step-number">01</div>
-                <div class="step-badge">
+            <div class="step-number">01</div>
+            <div class="step-badge">
                 <span class="step-index">01</span>
                 <span class="step-tag">Inicio</span>
-                </div>
-                <div class="step-icon">🎯</div>
-                <h3 class="step-title">Consulta Inicial</h3>
-                <p class="step-desc">
-                Nos reunimos contigo para escuchar tus objetivos, entender tu negocio y definir el alcance real del proyecto. Sin tecnicismos, sin rodeos.
-                </p>
             </div>
-        
+            <div class="step-icon">🎯</div>
+            <h3 class="step-title">Consulta Inicial</h3>
+            <p class="step-desc">Nos reunimos contigo para escuchar tus objetivos, entender tu negocio y definir el alcance real del proyecto. Sin tecnicismos, sin rodeos.</p>
+            </div>
+
             <div class="proceso-step">
-                <div class="step-number">02</div>
-                <div class="step-badge">
+            <div class="step-number">02</div>
+            <div class="step-badge">
                 <span class="step-index">02</span>
                 <span class="step-tag">Planificación</span>
-                </div>
-                <div class="step-icon">📋</div>
-                <h3 class="step-title">Propuesta & Estrategia</h3>
-                <p class="step-desc">
-                Diseñamos una propuesta detallada con timeline, presupuesto y entregables claros. Tú apruebas antes de que escribamos una sola línea de código.
-                </p>
             </div>
-        
+            <div class="step-icon">📋</div>
+            <h3 class="step-title">Propuesta & Estrategia</h3>
+            <p class="step-desc">Diseñamos una propuesta detallada con timeline, presupuesto y entregables claros. Tú apruebas antes de que escribamos una sola línea de código.</p>
+            </div>
+
             <div class="proceso-step">
-                <div class="step-number">03</div>
-                <div class="step-badge">
+            <div class="step-number">03</div>
+            <div class="step-badge">
                 <span class="step-index">03</span>
                 <span class="step-tag">Construcción</span>
-                </div>
-                <div class="step-icon">⚙️</div>
-                <h3 class="step-title">Desarrollo</h3>
-                <p class="step-desc">
-                Nuestro equipo ejecuta con precisión. Recibes actualizaciones periódicas y acceso al avance en tiempo real. Iteramos rápido, comunicamos siempre.
-                </p>
             </div>
-        
+            <div class="step-icon">⚙️</div>
+            <h3 class="step-title">Desarrollo</h3>
+            <p class="step-desc">Nuestro equipo ejecuta con precisión. Recibes actualizaciones periódicas y acceso al avance en tiempo real. Iteramos rápido, comunicamos siempre.</p>
+            </div>
+
             <div class="proceso-step">
-                <div class="step-number">04</div>
-                <div class="step-badge">
+            <div class="step-number">04</div>
+            <div class="step-badge">
                 <span class="step-index">04</span>
                 <span class="step-tag">Calidad</span>
-                </div>
-                <div class="step-icon">🔍</div>
-                <h3 class="step-title">Testing & QA</h3>
-                <p class="step-desc">
-                Pruebas exhaustivas en dispositivos reales: velocidad, accesibilidad, seguridad y experiencia de usuario. Entregamos solo cuando está al 100%.
-                </p>
             </div>
-        
+            <div class="step-icon">🔍</div>
+            <h3 class="step-title">Testing & QA</h3>
+            <p class="step-desc">Pruebas exhaustivas en dispositivos reales: velocidad, accesibilidad, seguridad y experiencia de usuario. Entregamos solo cuando está al 100%.</p>
+            </div>
+
             <div class="proceso-step">
-                <div class="step-number">05</div>
-                <div class="step-badge">
+            <div class="step-number">05</div>
+            <div class="step-badge">
                 <span class="step-index">05</span>
                 <span class="step-tag">Entrega</span>
-                </div>
-                <div class="step-icon">🚀</div>
-                <h3 class="step-title">Lanzamiento</h3>
-                <p class="step-desc">
-                Desplegamos tu solución con cero tiempo de inactividad. Gestionamos la transición completa y te capacitamos para operar con total autonomía.
-                </p>
             </div>
-        
+            <div class="step-icon">🚀</div>
+            <h3 class="step-title">Lanzamiento</h3>
+            <p class="step-desc">Desplegamos tu solución con cero tiempo de inactividad. Gestionamos la transición completa y te capacitamos para operar con total autonomía.</p>
+            </div>
+
             <div class="proceso-step">
-                <div class="step-number">06</div>
-                <div class="step-badge">
+            <div class="step-number">06</div>
+            <div class="step-badge">
                 <span class="step-index">06</span>
                 <span class="step-tag">Continuidad</span>
-                </div>
-                <div class="step-icon">🛡️</div>
-                <h3 class="step-title">Soporte & Crecimiento</h3>
-                <p class="step-desc">
-                No desaparecemos después del lanzamiento. Brindamos soporte continuo, monitoreo y mejoras iterativas para que tu producto siga creciendo.
-                </p>
             </div>
+            <div class="step-icon">🛡️</div>
+            <h3 class="step-title">Soporte & Crecimiento</h3>
+            <p class="step-desc">No desaparecemos después del lanzamiento. Brindamos soporte continuo, monitoreo y mejoras iterativas para que tu producto siga creciendo.</p>
+            </div>
+
         </div>
 
         <div class="proceso-progress">
@@ -435,150 +436,183 @@
             <div class="progress-dot active"></div>
             <div class="progress-dot active"></div>
         </div>
-    </div>    
+
+        </div>
     </section>
 
-    <!-- Contacto -->
+
+    <!-- ═══════════════════════════════════════
+        CONTACTO
+    ═══════════════════════════════════════ -->
     <section id="contacto" class="contacto">
         <div class="orb-2"></div>
         <div class="slash-top"></div>
+
         <div class="container">
-            <div class="contacto-header">
+
+        <div class="contacto-header">
             <div class="contacto-eyebrow">Hablemos</div>
             <h2 class="section-title">
-                ¿Listo para transformar<br>
-                tu <span>negocio?</span>
+            ¿Listo para transformar<br>
+            tu <span>negocio?</span>
             </h2>
-            <p class="contacto-subtitle">
-                Agenda una consulta gratuita y descubre cómo podemos ayudarte a escalar
-            </p>
-            </div>
-            <div class="contacto-wrapper">
+            <p class="contacto-subtitle">Agenda una consulta gratuita y descubre cómo podemos ayudarte a escalar</p>
+        </div>
+
+        <div class="contacto-wrapper">
+
+            <!-- Info lateral -->
             <div class="contacto-info">
-                <p class="info-label">Canales de contacto</p>
-                <div class="info-item">
+            <p class="info-label">Canales de contacto</p>
+
+            <div class="info-item">
                 <div class="info-icon-wrap">📧</div>
                 <div class="info-text">
-                    <h4>Email</h4>
-                    <p>teamaxs@gmail.com</p>
+                <h4>Email</h4>
+                <p>teamaxs@gmail.com</p>
                 </div>
-                </div>
-                <div class="info-item">
+            </div>
+
+            <div class="info-item">
                 <div class="info-icon-wrap">📱</div>
                 <div class="info-text">
-                    <h4>Teléfono / WhatsApp</h4>
-                    <p>+51 970 300 311</p>
+                <h4>Teléfono / WhatsApp</h4>
+                <p>+51 970 300 311</p>
                 </div>
-                </div>
-                <div class="info-item">
+            </div>
+
+            <div class="info-item">
                 <div class="info-icon-wrap">🕐</div>
                 <div class="info-text">
-                    <h4>Disponibilidad</h4>
-                    <p>Lun – Vie, 9am – 6pm</p>
+                <h4>Disponibilidad</h4>
+                <p>Lun – Vie, 9am – 6pm</p>
                 </div>
-                </div>
-                <div class="info-divider"></div>
-                <div class="info-cta">
+            </div>
+
+            <div class="info-divider"></div>
+
+            <div class="info-cta">
                 <div class="info-cta-dot"></div>
                 <p>
-                    <strong>Respondemos rápido</strong>
-                    Tiempo promedio de respuesta: menos de 2 horas
+                <strong>Respondemos rápido</strong>
+                Tiempo promedio de respuesta: menos de 2 horas
                 </p>
-                </div>
             </div>
-                <div class="contacto-content">
-                    <form class="contact-form" id="contactForm" novalidate>
-                    <div>
-                        <p class="form-title">Envía tu solicitud</p>
-                        <p class="form-subtitle">Todos los campos son requeridos</p>
+            </div>
+
+            <!-- Formulario -->
+            <div class="contacto-content">
+            <form class="contact-form" id="contactForm" novalidate>
+
+                <div>
+                <p class="form-title">Envía tu solicitud</p>
+                <p class="form-subtitle">Todos los campos son requeridos</p>
+                </div>
+
+                <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <div class="field-wrap">
+                    <input type="text" id="nombre" placeholder="Juan Pérez" required>
+                    <span class="field-icon">👤</span>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                        <label for="nombre">Nombre completo</label>
-                        <div class="field-wrap">
-                            <input type="text" id="nombre" placeholder="Juan Pérez" required>
-                            <span class="field-icon">👤</span>
-                        </div>
-                        <span class="form-error"></span>
-                        </div>
-                        <div class="form-group">
-                        <label for="empresa">Empresa</label>
-                        <div class="field-wrap">
-                            <input type="text" id="empresa" placeholder="Tu empresa" required>
-                            <span class="field-icon">🏢</span>
-                        </div>
-                        <span class="form-error"></span>
-                        </div>
+                    <span class="form-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="empresa">Empresa</label>
+                    <div class="field-wrap">
+                    <input type="text" id="empresa" placeholder="Tu empresa" required>
+                    <span class="field-icon">🏢</span>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                        <label for="email">Email</label>
-                        <div class="field-wrap">
-                            <input type="email" id="email" placeholder="juan@ejemplo.com" required>
-                            <span class="field-icon">✉️</span>
-                        </div>
-                        <span class="form-error"></span>
-                        </div>
-                        <div class="form-group">
-                        <label for="telefono">Teléfono</label>
-                        <div class="field-wrap">
-                            <input type="tel" id="telefono" placeholder="+51 947 578 285" required>
-                            <span class="field-icon">📞</span>
-                        </div>
-                        <span class="form-error"></span>
-                        </div>
+                    <span class="form-error"></span>
+                </div>
+                </div>
+
+                <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="field-wrap">
+                    <input type="email" id="email" placeholder="juan@ejemplo.com" required>
+                    <span class="field-icon">✉️</span>
                     </div>
-                    <div class="form-group">
-                        <label for="proyecto">Cuéntanos sobre tu proyecto</label>
-                        <div class="field-wrap">
-                        <textarea id="proyecto" placeholder="Describe brevemente qué necesitas y cuál es tu objetivo..." rows="4" required></textarea>
-                        <span class="field-icon">💬</span>
-                        </div>
-                        <span class="form-error"></span>
+                    <span class="form-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <div class="field-wrap">
+                    <input type="tel" id="telefono" placeholder="+51 947 578 285" required>
+                    <span class="field-icon">📞</span>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-submit">
-                        <span class="btn-text">Enviar solicitud</span>
-                        <span class="btn-arrow">→</span>
-                        <span class="btn-loader"></span>
-                    </button>
-                    <div class="form-success hidden">
-                        ¡Gracias! Nos pondremos en contacto contigo muy pronto.
-                    </div>
-                    </form>
-                </div>    
-            </div>    
-        </div>    
+                    <span class="form-error"></span>
+                </div>
+                </div>
+
+                <div class="form-group">
+                <label for="proyecto">Cuéntanos sobre tu proyecto</label>
+                <div class="field-wrap">
+                    <textarea id="proyecto" placeholder="Describe brevemente qué necesitas y cuál es tu objetivo..." rows="4" required></textarea>
+                    <span class="field-icon">💬</span>
+                </div>
+                <span class="form-error"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit">
+                <span class="btn-text">Enviar solicitud</span>
+                <span class="btn-arrow">→</span>
+                <span class="btn-loader"></span>
+                </button>
+
+                <div class="form-success hidden">
+                ¡Gracias! Nos pondremos en contacto contigo muy pronto.
+                </div>
+
+            </form>
+            </div>
+
+        </div>
+        </div>
     </section>
 
-    <!-- Footer -->
+
+    <!-- ═══════════════════════════════════════
+        FOOTER
+    ═══════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Team AXS</h4>
-                    <p>Soluciones digitales innovadoras para tu empresa.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces</h4>
-                    <ul>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                        <li><a href="#proceso">Proceso</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <p>Email: info@teamaxs.com</p>
-                    <p>Teléfono: +57 300 123 4567</p>
-                </div>
+
+        <div class="footer-content">
+
+            <div class="footer-section">
+            <h4>Team AXS</h4>
+            <p>Soluciones digitales innovadoras para tu empresa.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Team AXS. Todos los derechos reservados.</p>
+
+            <div class="footer-section">
+            <h4>Enlaces</h4>
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#porque">Por qué elegirnos</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
             </div>
+
+            <div class="footer-section">
+            <h4>Contacto</h4>
+            <p>Email: teamaxs@gmail.com</p>
+            <p>Teléfono: +51 970 300 311</p>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Team AXS. Todos los derechos reservados.</p>
+        </div>
         </div>
     </footer>
 
+
     <script type="module" src="/src/main.js"></script>
-</body>
-</html>
+
+    </body>
+    </html>
